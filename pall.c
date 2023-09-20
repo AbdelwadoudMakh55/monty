@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * pall - prints all the elements of a stack
- * @h : Pointer to top of stack.
+ * @stack : Pointer to top of stack.
  * Return: Number of elements.
  */
 size_t pall(stack_t *stack)

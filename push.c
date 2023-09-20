@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * push - adds a new node at the beginning of the stack.
- * @head : Pointer to Pointer to top of stack..
+ * @stack : Pointer to Pointer to top of stack..
  * @n : Integer
  * Return: the address of the new element, or NULL if it failed.
  */

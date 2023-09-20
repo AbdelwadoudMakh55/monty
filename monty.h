@@ -30,7 +30,7 @@ extern int line_number;
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
- * 
+ *
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
@@ -42,5 +42,7 @@ typedef struct instruction_s
 
 stack_t *push(stack_t **stack, int n);
 size_t pall(stack_t *stack);
+void execution(char *args, char **inst_arr, char *commands[], int line_number,
+		stack_t *stack);
 
 #endif
