@@ -33,6 +33,13 @@ void execution(char *args, char **inst_arr, char *commands[], int line_number,
 			push(&stack, atoi(commands[1]));
 		if (strcmp(commands[0], "pall") == 0)
 			pall(stack);
+		if (strcmp(commands[0], "pint") == 0)
+		{
+			if (len_stack(stack) == 0)
+				fprintf(stderr, "L%d: can't pint, stack empty\n", j),
+					exit(EXIT_FAILURE);
+			printf("%d\n", (*stack).n);
+		}
 		j++;
 	}
 }
