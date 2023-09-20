@@ -15,6 +15,7 @@ void execution(char *args, char **inst_arr, char *commands[], int line_number,
 
 	while (j < line_number)
 	{
+		i = 1;
 		inst_arr[j][strlen(inst_arr[j]) - 1] = '\0';
 		args = strtok(inst_arr[j], " ");
 		commands[0] = args;
@@ -24,7 +25,8 @@ void execution(char *args, char **inst_arr, char *commands[], int line_number,
 			commands[i] = args;
 			i++;
 		}
-		if (!commands[1] || !atoi(commands[1]))
+		if ((strcmp(commands[0], "push") == 0) &&
+		(!commands[1] || !atoi(commands[1])))
 			fprintf(stderr, "L%d: usage: push integer\n", j),
 				exit(EXIT_FAILURE);
 		if (strcmp(commands[0], "push") == 0)
