@@ -44,6 +44,8 @@ void execution(char *args, char **inst_arr, char *commands[], int line_number,
 			pop(&stack);
 		if (strcmp(commands[0], "nop") == 0)
 			return;
+		if (strcmp(commands[0], "swap") == 0)
+			swap(&stack);
 		j++;
 	}
 }
