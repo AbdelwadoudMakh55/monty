@@ -5,11 +5,13 @@
  * @argv : Pointer to array of args (char *).
  * Return: 0 Success, 1 else.
  */
+stack_t *stack = NULL;
+int line_number = 0;
 int main(int argc, char **argv)
 {
 	FILE *file; 
-	char *inst_arr[20];
-	int line_number = 0, i;
+	char *inst_arr[20], *args = NULL, *commands[10] = {0};
+	int i = 1, j = 0;
 
 	if (argc == 1 || argc > 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
@@ -26,6 +28,19 @@ int main(int argc, char **argv)
 		if (fgets(inst_arr[line_number], 50, file) != NULL)
 			line_number++;
 	}
-	fclose(file);
+	/*args = strtok(inst_arr[j], " ");
+	commands[0] = args;
+	while (args != NULL)
+	{
+		args = strtok(NULL, " ");
+		commands[i] = args;
+		i++;
+	}
+	if (!commands[1] || !atoi(commands[1]))
+		fprintf(stderr, "L%d: usage: push integer\n", j),
+			exit(EXIT_FAILURE);
+	push(&stack, atoi(commands[1]));
+	pall(stack);
+	fclose(file);*/
 	return (0);
 }
