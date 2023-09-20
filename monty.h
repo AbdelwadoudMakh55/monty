@@ -41,6 +41,7 @@ typedef struct instruction_s
 } instruction_t;
 
 size_t len_stack(stack_t *stack);
+int pop(stack_t **stack);
 stack_t *push(stack_t **stack, int n);
 size_t pall(stack_t *stack);
 void execution(char *args, char **inst_arr, char *commands[], int line_number,

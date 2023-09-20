@@ -40,6 +40,8 @@ void execution(char *args, char **inst_arr, char *commands[], int line_number,
 					exit(EXIT_FAILURE);
 			printf("%d\n", (*stack).n);
 		}
+		if (strcmp(commands[0], "pop") == 0)
+			pop(&stack);
 		if (strcmp(commands[0], "nop") == 0)
 			return;
 		j++;
