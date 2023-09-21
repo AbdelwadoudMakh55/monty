@@ -28,6 +28,9 @@ unsigned int line_number)
 			commands[i] = args;
 			i++;
 		}
+		if (strcmp(commands[0], "pint") == 0 && commands[1] != NULL)
+			fprintf(stderr, "L%u: unknown instruction %s\n",
+				line_number, commands[0]), exit(EXIT_FAILURE);
 		if (strcmp(commands[0], "push") == 0 && (commands[1] == NULL ||
 		!atoi(commands[1])))
 			fprintf(stderr, "L%u: usage: push integer\n", j + 1),
