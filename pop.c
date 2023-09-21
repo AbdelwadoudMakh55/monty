@@ -7,14 +7,16 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *current, *next_n;
+	stack_t *current = *stack, *next_n = (*current).next;
 
 	if (*stack == NULL || stack == NULL)
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number),
 			exit(EXIT_FAILURE);
-	current = *stack;
-	next_n = (*current).next;
-	free(current);
-	*stack = next_n;
-	(**stack).prev = NULL;
+	if (len_stack(stack) == 1)
+		free(*stack);
+	else
+	{
+		free(*stack);
+		*stack = next_n;
+	}
 }

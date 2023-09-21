@@ -8,6 +8,7 @@
 unsigned int line_number = 0;
 int main(int argc, char **argv)
 {
+	unsigned int i;
 	FILE *file;
 	char *inst_arr[20], *args = NULL, *commands[10] = {0};
 
@@ -28,5 +29,7 @@ int main(int argc, char **argv)
 	}
 	execution(args, inst_arr, commands, line_number);
 	fclose(file);
+	for (i = 0; i < line_number; i++)
+		free(inst_arr[i]);
 	return (0);
 }
