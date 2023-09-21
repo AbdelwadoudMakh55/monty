@@ -24,7 +24,8 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 extern stack_t *stack;
-extern int line_number;
+extern unsigned int line_number;
+extern int n;
 
 /**
  * struct instruction_s - opcode and its function
@@ -40,13 +41,17 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-size_t len_stack(stack_t *stack);
-int pop(stack_t **stack);
-stack_t *push(stack_t **stack, int n);
-size_t pall(stack_t *stack);
-void swap(stack_t **stack);
-void add(stack_t **stack);
-void execution(char *args, char **inst_arr, char *commands[], int line_number,
-		stack_t *stack);
+size_t len_stack(stack_t **stack);
+void pop(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void (*get_opcode_func(char *command, unsigned int line_number))
+(stack_t **, unsigned int);
+void execution(char *args, char **inst_arr, char *commands[],
+unsigned int line_number, stack_t **stack);
 
 #endif

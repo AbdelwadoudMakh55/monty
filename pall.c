@@ -2,17 +2,17 @@
 /**
  * pall - prints all the elements of a stack
  * @stack : Pointer to top of stack.
- * Return: Number of elements.
+ * @line_number : Number of the line in .m file.
+ * Return: Void.
  */
-size_t pall(stack_t *stack)
+void pall(stack_t **stack, unsigned int line_number
+		__attribute__((unused)))
 {
-	size_t len = 0;
-
-	while (stack != NULL)
+	if (len_stack(stack) == 0)
+		return;
+	while (*stack != NULL)
 	{
-		printf("%d\n", (*stack).n);
-		len++;
-		stack = (*stack).next;
+		printf("%d\n", (**stack).n);
+		*stack = (**stack).next;
 	}
-	return (len);
 }

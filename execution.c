@@ -8,10 +8,12 @@
  * @stack : Pointer to stack top.
  * Return: Void.
  */
-void execution(char *args, char **inst_arr, char *commands[], int line_number,
-		stack_t *stack)
+int n = 0;
+void execution(char *args, char **inst_arr, char *commands[],
+unsigned int line_number, stack_t **stack)
 {
-	int j = 0, i = 1;
+	unsigned int j = 0, i = 1;
+	void (*opcode)(stack_t **, unsigned int);
 
 	while (j < line_number)
 	{
@@ -25,29 +27,10 @@ void execution(char *args, char **inst_arr, char *commands[], int line_number,
 			commands[i] = args;
 			i++;
 		}
-		if ((strcmp(commands[0], "push") == 0) &&
-		(!commands[1] || !atoi(commands[1])))
-			fprintf(stderr, "L%d: usage: push integer\n", j),
-				exit(EXIT_FAILURE);
-		if (strcmp(commands[0], "push") == 0)
-			push(&stack, atoi(commands[1]));
-		if (strcmp(commands[0], "pall") == 0)
-			pall(stack);
-		if (strcmp(commands[0], "pint") == 0)
-		{
-			if (len_stack(stack) == 0)
-				fprintf(stderr, "L%d: can't pint, stack empty\n", j),
-					exit(EXIT_FAILURE);
-			printf("%d\n", (*stack).n);
-		}
-		if (strcmp(commands[0], "pop") == 0)
-			pop(&stack);
-		if (strcmp(commands[0], "nop") == 0)
-			return;
-		if (strcmp(commands[0], "swap") == 0)
-			swap(&stack);
-                if (strcmp(commands[0], "add") == 0)
-			add(&stack);
+		if (strcmp(commands[0] , "push") == 0)
+			n = atoi(commands[1]);
+		opcode = get_opcode_func(commands[0], j);
+		opcode(stack, j);
 		j++;
 	}
 }
