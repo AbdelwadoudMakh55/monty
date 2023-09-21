@@ -5,7 +5,6 @@
  * @argv : Pointer to array of args (char *).
  * Return: 0 Success, 1 else.
  */
-stack_t *stack = NULL;
 unsigned int line_number = 0;
 int main(int argc, char **argv)
 {
@@ -27,7 +26,7 @@ int main(int argc, char **argv)
 		if (fgets(inst_arr[line_number], 50, file) != NULL)
 			line_number++;
 	}
-	execution(args, inst_arr, commands, line_number, &stack);
+	execution(args, inst_arr, commands, line_number);
 	fclose(file);
 	return (0);
 }

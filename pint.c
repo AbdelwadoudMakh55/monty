@@ -7,8 +7,11 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current = *stack, *stack_copy = *stack;
+
 	if (len_stack(stack) == 0)
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number),
 			exit(EXIT_FAILURE);
-	printf("%d\n", (**stack).n);
+	printf("%d\n", (*current).n);
+	*stack = stack_copy;
 }

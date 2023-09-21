@@ -8,11 +8,14 @@
 void pall(stack_t **stack, unsigned int line_number
 		__attribute__((unused)))
 {
+	stack_t *current = *stack, *stack_copy = *stack;
+
 	if (len_stack(stack) == 0)
 		return;
-	while (*stack != NULL)
+	while (current != NULL)
 	{
-		printf("%d\n", (**stack).n);
-		*stack = (**stack).next;
+		printf("%d\n", (*current).n);
+		current = (*current).next;
 	}
+	*stack = stack_copy;
 }

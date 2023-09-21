@@ -52,6 +52,6 @@ void nop(stack_t **stack, unsigned int line_number);
 void (*get_opcode_func(char *command, unsigned int line_number))
 (stack_t **, unsigned int);
 void execution(char *args, char **inst_arr, char *commands[],
-unsigned int line_number, stack_t **stack);
+unsigned int line_number/*, stack_t **stack*/);
 
 #endif

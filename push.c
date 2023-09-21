@@ -19,6 +19,7 @@ void push(stack_t **stack, unsigned int line_number
 		(*new).next = NULL;
 		(*new).prev = NULL;
 		*stack = new;
+		return;
 	}
 	(*new).next = *stack;
 	(**stack).prev = new;
