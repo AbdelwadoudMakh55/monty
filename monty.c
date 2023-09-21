@@ -10,13 +10,18 @@ int main(int argc, char **argv)
 {
 	unsigned int i;
 	FILE *file;
-	char *inst_arr[20], *args = NULL, *commands[10] = {0};
+	char **inst_arr, *args = NULL, *commands[10] = {0};
 
+	inst_arr = malloc(sizeof(stack_t) * 500);
 	if (argc == 1 || argc > 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]),
+			exit(EXIT_FAILURE);
+	inst_arr = malloc(sizeof(char *) * 500);
+	if (inst_arr == NULL)
+		fprintf(stderr, "Error: malloc failed\n"),
 			exit(EXIT_FAILURE);
 	while (!feof(file) && !ferror(file))
 	{
@@ -31,5 +36,6 @@ int main(int argc, char **argv)
 	fclose(file);
 	for (i = 0; i < line_number; i++)
 		free(inst_arr[i]);
+	free(inst_arr);
 	return (0);
 }

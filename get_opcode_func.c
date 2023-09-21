@@ -25,6 +25,6 @@ void (*get_opcode_func(char *command, unsigned int line_number))(stack_t **,
 			return (opcodes[i].f);
 		i++;
 	}
-	fprintf(stderr, "\nL%u: unknown instruction %s\n", line_number,
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_number,
 		command), exit(EXIT_FAILURE);
 }
