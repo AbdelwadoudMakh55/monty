@@ -17,14 +17,14 @@ void execution(char *args, char **inst_arr, unsigned int line_number)
 	while (j < line_number)
 	{
 		i = 1;
-		if (strlen(inst_arr[j]) == 1)
+		if (strlen(inst_arr[j]) == 1 || check_space(inst_arr[j]) == 1)
 			j++;
 		else
 		{
 			inst_arr[j][strlen(inst_arr[j]) - 1] = '\0';
 			args = strtok(inst_arr[j], " ");
 			cmd[0] = args;
-			while (args != NULL)
+			while (i < 2 && args != NULL)
 			{
 				args = strtok(NULL, " ");
 				cmd[i] = args;
