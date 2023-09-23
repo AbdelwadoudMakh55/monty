@@ -16,7 +16,8 @@ void execution(char **inst_arr, unsigned int line_number)
 	while (j < line_number)
 	{
 		i = 1;
-		if (strlen(inst_arr[j]) == 1 || check_space(inst_arr[j]) == 1)
+		if (strlen(inst_arr[j]) == 1 || check_space(inst_arr[j]) == 1
+		|| check_comment(inst_arr[j]) == 1)
 			j++;
 		else
 		{

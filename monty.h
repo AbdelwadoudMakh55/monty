@@ -44,6 +44,7 @@ typedef struct instruction_s
 void free_stack(stack_t *stack);
 int check_space(char *string);
 int check_int(char *string);
+int check_comment(char *line);
 size_t len_stack(stack_t **stack);
 void pop(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
