@@ -41,6 +41,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void free_stack(stack_t *stack);
 int check_space(char *string);
 int check_int(char *string);
 size_t len_stack(stack_t **stack);
@@ -53,6 +54,6 @@ void pint(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void (*gof(char *command, unsigned int line_number))
 (stack_t **, unsigned int);
-void execution(char *args, char **inst_arr, unsigned int line_number);
+void execution(char **inst_arr, unsigned int line_number);
 
 #endif

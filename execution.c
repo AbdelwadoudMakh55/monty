@@ -3,15 +3,14 @@ int n = 0;
 stack_t *stack = NULL;
 /**
  * execution - Function to execute the commands.
- * @args : Pointer to array used for strtok (to store strings from .m file).
  * @inst_arr : Pointer to array of lines from .m file.
  * @line_number : Number of lines in .m file.
  * Return: Void.
  */
-void execution(char *args, char **inst_arr, unsigned int line_number)
+void execution(char **inst_arr, unsigned int line_number)
 {
 	unsigned int j = 0, i = 1;
-	char *cmd[10] = {0}; /* List of commands*/
+	char *cmd[10] = {0}, *args = NULL; /* List of commands*/
 	void (*opcode)(stack_t **, unsigned int);
 
 	while (j < line_number)
@@ -41,4 +40,5 @@ void execution(char *args, char **inst_arr, unsigned int line_number)
 			j++;
 		}
 	}
+	free(stack);
 }

@@ -8,9 +8,9 @@ unsigned int line_number = 0;
  */
 int main(int argc, char **argv)
 {
-	unsigned int i;
+	unsigned int i, j;
 	FILE *file;
-	char **inst_arr, *args = NULL;
+	char **inst_arr;
 
 	if (argc == 1 || argc > 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
@@ -26,12 +26,16 @@ int main(int argc, char **argv)
 	{
 		inst_arr[line_number] = malloc(sizeof(char) * 200);
 		if (inst_arr[line_number] == NULL)
+		{
+			for (j = 0; j < line_number; j++)
+				free(inst_arr[j]);
 			fprintf(stderr, "Error: malloc failed\n"),
 				exit(EXIT_FAILURE);
+		}
 		if (fgets(inst_arr[line_number], 200, file) != NULL)
 			line_number++;
 	}
-	execution(args, inst_arr, line_number);
+	execution(inst_arr, line_number);
 	fclose(file);
 	for (i = 0; i < line_number; i++)
 		free(inst_arr[i]);
