@@ -16,9 +16,10 @@ void (*gof(char *command, unsigned int line_number))(stack_t **, unsigned int)
 			{"pop", pop},
 			{"swap", swap},
 			{"add", add},
-			{"nop", nop}
+			{"nop", nop},
+			{"sub", sub}
 	};
-	while (i < 7)
+	while (i < 8)
 	{
 		if (strcmp(command, opcodes[i].opcode) == 0)
 			return (opcodes[i].f);
