@@ -13,7 +13,7 @@ int check_int(char *string)
 	while (*string != '\0')
 	{
 		if (!(*string >= 48 && *string <= 57))
-		{	
+		{
 			result = 0;
 			break;
 		}
