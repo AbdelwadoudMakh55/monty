@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	if (file == NULL)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]),
 			exit(EXIT_FAILURE);
-	inst_arr = malloc(sizeof(char *) * 500);
+	inst_arr = malloc(sizeof(char *) * 5000);
 	if (inst_arr == NULL)
 		fprintf(stderr, "Error: malloc failed\n"),
 			exit(EXIT_FAILURE);
