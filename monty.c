@@ -24,11 +24,11 @@ int main(int argc, char **argv)
 			exit(EXIT_FAILURE);
 	while (!feof(file) && !ferror(file))
 	{
-		inst_arr[line_number] = malloc(sizeof(char) * 50);
+		inst_arr[line_number] = malloc(sizeof(char) * 200);
 		if (inst_arr[line_number] == NULL)
 			fprintf(stderr, "Error: malloc failed\n"),
 				exit(EXIT_FAILURE);
-		if (fgets(inst_arr[line_number], 50, file) != NULL)
+		if (fgets(inst_arr[line_number], 200, file) != NULL)
 			line_number++;
 	}
 	execution(args, inst_arr, line_number);

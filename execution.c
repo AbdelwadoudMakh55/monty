@@ -14,7 +14,7 @@ void execution(char *args, char **inst_arr, unsigned int line_number)
 	char *cmd[10] = {0}; /* List of commands*/
 	void (*opcode)(stack_t **, unsigned int);
 
-	while (j < line_number - 1)
+	while (j < line_number)
 	{
 		i = 1;
 		if (strlen(inst_arr[j]) == 1 || check_space(inst_arr[j]) == 1)
