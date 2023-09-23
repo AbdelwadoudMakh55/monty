@@ -18,9 +18,10 @@ void (*gof(char *command, unsigned int line_number))(stack_t **, unsigned int)
 			{"add", add},
 			{"nop", nop},
 			{"sub", sub},
-			{"div", division}
+			{"div", division},
+			{"mul", mul}
 	};
-	while (i < 9)
+	while (i < 10)
 	{
 		if (strcmp(command, opcodes[i].opcode) == 0)
 			return (opcodes[i].f);
