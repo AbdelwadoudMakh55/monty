@@ -21,9 +21,10 @@ void (*gof(char *command, unsigned int line_number))(stack_t **, unsigned int)
 			{"div", division},
 			{"mul", mul},
 			{"mod", mod},
-			{"pchar", pchar}
+			{"pchar", pchar},
+			{"pstr", pstr}
 	};
-	while (i < 12)
+	while (i < 13)
 	{
 		if (strcmp(command, opcodes[i].opcode) == 0)
 			return (opcodes[i].f);
