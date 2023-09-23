@@ -12,9 +12,6 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (len_stack(stack) == 0)
 		fprintf(stderr, "L%u: can't pop an empty stack\n",
 			line_number), exit(EXIT_FAILURE);
-	/*if (*stack == NULL || stack == NULL)
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number),
-			exit(EXIT_FAILURE);*/
 	next_n = (*current).next;
 	if (len_stack(stack) == 1)
 		free(*stack);
