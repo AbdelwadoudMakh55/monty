@@ -10,9 +10,8 @@ int main(int argc, char **argv)
 {
 	unsigned int i;
 	FILE *file;
-	char **inst_arr, *args = NULL, *commands[10] = {0};
+	char **inst_arr, *args = NULL;
 
-	inst_arr = malloc(sizeof(stack_t) * 500);
 	if (argc == 1 || argc > 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	file = fopen(argv[1], "r");
@@ -32,7 +31,7 @@ int main(int argc, char **argv)
 		if (fgets(inst_arr[line_number], 50, file) != NULL)
 			line_number++;
 	}
-	execution(args, inst_arr, commands, line_number);
+	execution(args, inst_arr, line_number);
 	fclose(file);
 	for (i = 0; i < line_number; i++)
 		free(inst_arr[i]);
