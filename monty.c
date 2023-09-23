@@ -1,11 +1,11 @@
 #include "monty.h"
+unsigned int line_number = 0;
 /**
  * main - The entry point for the interpreter.
  * @argc : Number of arguments.
  * @argv : Pointer to array of args (char *).
  * Return: 0 Success, 1 else.
  */
-unsigned int line_number = 0;
 int main(int argc, char **argv)
 {
 	unsigned int i;

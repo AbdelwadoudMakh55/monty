@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * get_opcode_func - Get the function of the opcode.
+ * gof - Get the function of the opcode.
  * @command : Pointer to command.
  * @line_number : Number of the line in .m file.
  * Return: Pointer to function.
  */
-void (*get_opcode_func(char *command, unsigned int line_number))(stack_t **, unsigned int)
+void (*gof(char *command, unsigned int line_number))(stack_t **, unsigned int)
 {
 	int i = 0;
 
