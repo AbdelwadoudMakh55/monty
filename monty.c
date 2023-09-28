@@ -37,8 +37,9 @@ int main(int argc, char **argv)
 	}
 	execution(inst_arr, line_number);
 	fclose(file);
-	for (i = 0; i < line_number; i++)
+	for (i = 0; i <= line_number; i++)
 		free(inst_arr[i]);
 	free(inst_arr);
+	free_stack(stack);
 	return (0);
 }

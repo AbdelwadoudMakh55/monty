@@ -41,5 +41,4 @@ void execution(char **inst_arr, unsigned int line_number)
 			j++;
 		}
 	}
-	free(stack);
 }

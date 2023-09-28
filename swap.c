@@ -19,5 +19,6 @@ void swap(stack_t **stack, unsigned int line_number)
 	(*current).prev = NULL;
 	(*tmp).prev = current;
 	(*tmp).next = thrd_top;
-	(*thrd_top).prev = tmp;
+	if (thrd_top != NULL)
+		(*thrd_top).prev = tmp;
 }
